@@ -8,7 +8,7 @@
 import scrapy
 
 
-class ScikitItem(scrapy.Item):
+class MainItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     libName = scrapy.Field() # library name
@@ -27,9 +27,13 @@ class ScikitItem(scrapy.Item):
     funcReturnBody = scrapy.Field() # contains entire col. body associated with "Returns: " 
     #returnName = scrapy.Field()
     #returnDesc = scrapy.Field()
+    methods = scrapy.Field() # methods associated with the class/func
+
+
+class MethodItem(scrapy.Item):
     methodName = scrapy.Field() #method associated to the function
     methodDesc = scrapy.Field() # it's description
-    methodParams = scrapy.Field() # parameters of the method
+    methodParams = scrapy.Field() # a list of parameters of the method
     methodParamsBody = scrapy.Field() #description associated with the parameters
     methodReturns = scrapy.Field() # return type of the method
     methodReturnsBody = scrapy.Field() #description associated with method's 'Returns'
